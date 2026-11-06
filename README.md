@@ -7,6 +7,14 @@
 
 - Enjoy learning from this, feel free to contibute 
 
+## The following sorting algorithms have been covered
+1. Bubble sort O(N^2)
+2. Selection sort 
+3. Insertion sort 
+4. Quick sort 
+5. Merge sort 
+6. Heap sort 
+
 # Environment setup
 
 if you choose to run an compile the code outside of docker, then you will need to have the following installed
