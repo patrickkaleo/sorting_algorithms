@@ -1,4 +1,5 @@
 main
+main_test
 *.o
 *.exe
 /obj

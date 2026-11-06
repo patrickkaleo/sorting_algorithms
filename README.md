@@ -7,3 +7,14 @@
 
 - Enjoy learning from this, feel free to contibute 
 
+# Environment setup
+
+if you choose to run an compile the code outside of docker, then you will need to have the following installed
+- g++
+- make
+
+else: 
+    simpley run : docker compose up -d to build the image 
+    docker compose run --rm run to run main 
+    docker compose run --rm test to run tests 
+    docker compose run --rm all to run all 

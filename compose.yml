@@ -8,19 +8,21 @@ services:
       dockerfile: Dockerfile
     tty: true 
     volumes:
-      - type: bind
-        source: .
-        target: /export
-    command: "bash -lc make all && cp main /export/main && cp main_test /export/main_test"
+      - .:/export
+    command: ["sh", "-c", "cp -f /app/main /app/main_test /export/ && exec ./main"] 
   
   test: 
     depends_on:
-      - all 
+      all:
+        condition: service_completed_successfully
     image: sorting_algorithms
+    pull_policy: build
     command: ["./main_test"]
   run: 
     depends_on:
-      - all
+      all:
+        condition: service_completed_successfully
     image: sorting_algorithms
+    pull_policy: build
     command: ["./main"]
     
