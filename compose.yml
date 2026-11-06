@@ -1,0 +1,26 @@
+services:
+  all:
+    image: sorting_algorithms
+    pull_policy: build
+    working_dir: /app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    tty: true 
+    volumes:
+      - type: bind
+        source: .
+        target: /export
+    command: "bash -lc make all && cp main /export/main && cp main_test /export/main_test"
+  
+  test: 
+    depends_on:
+      - all 
+    image: sorting_algorithms
+    command: ["./main_test"]
+  run: 
+    depends_on:
+      - all
+    image: sorting_algorithms
+    command: ["./main"]
+    
